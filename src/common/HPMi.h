@@ -39,9 +39,6 @@ struct s_HPMDataCheck {
 	int type;
 };
 
-HPExport void *(*import_symbol) (char *name, unsigned int pID);
-HPExport Sql *mysql_handle;
-
 #define GET_SYMBOL(n) import_symbol((n),HPMi->pid)
 
 #define SERVER_TYPE_ALL (SERVER_TYPE_LOGIN|SERVER_TYPE_CHAR|SERVER_TYPE_MAP)
@@ -228,6 +225,8 @@ HPExport struct HPMi_interface {
 #ifndef HERCULES_CORE
 HPExport struct HPMi_interface HPMi_s;
 HPExport struct HPMi_interface *HPMi;
+HPExport void *(*import_symbol) (char *name, unsigned int pID);
+HPExport Sql *mysql_handle;
 #endif
 
 #endif /* COMMON_HPMI_H */
